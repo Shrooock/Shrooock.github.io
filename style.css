@@ -538,6 +538,95 @@ h1 {
 }
 
 /* ... (previous project styles) ... */
+.project-card {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--glass-border);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.overlay-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.overlay-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: var(--primary-color);
+    color: #000;
+}
 
 /* Contact Section */
 .contact-section {
@@ -827,12 +916,17 @@ h1 {
     }
 
     .overlay-content p {
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: #ccc;
-        margin-bottom: 1.5rem;
-        line-height: 1.5;
+        margin-bottom: 1rem;
+        line-height: 1.4;
         white-space: normal;
-        /* Ensure text wraps */
+
+        /* Truncate text to 3 lines */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .btn-small {
