@@ -570,11 +570,25 @@ h1 {
     gap: 1rem;
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.info-item:hover {
+    color: var(--primary-color);
+    transform: translateX(10px);
 }
 
 .info-item i {
     color: var(--primary-color);
     font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover i {
+    transform: scale(1.2);
 }
 
 .contact-form {
