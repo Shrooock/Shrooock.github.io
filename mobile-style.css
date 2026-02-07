@@ -1,0 +1,63 @@
+/* Mobile Project Cards Overrides */
+@media (max-width: 768px) {
+    .project-card {
+        height: auto;
+        overflow: visible;
+        /* Allow content to flow */
+    }
+
+    .project-image {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-image img {
+        height: 200px;
+        /* Fixed height for the screenshot on mobile */
+        width: 100%;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .overlay {
+        position: relative;
+        /* Move it out of absolute overlay */
+        opacity: 1;
+        height: auto;
+        /* Auto height to fit text */
+        background: transparent;
+        padding: 0;
+    }
+
+    .overlay-content {
+        transform: translateY(0);
+        padding: 1.5rem;
+        text-align: left;
+        background: rgba(255, 255, 255, 0.05);
+        /* Card body background */
+        border-radius: 0 0 15px 15px;
+        border: 1px solid var(--glass-border);
+        border-top: none;
+    }
+
+    .overlay-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .overlay-content p {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 1.5rem;
+        display: block;
+        /* Ensure it's visible */
+    }
+
+    .btn-small {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+    }
+}
