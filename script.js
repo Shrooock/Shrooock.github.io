@@ -84,46 +84,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === SCROLL FOCUS EFFECT ===
-    // This function calculates the distance of an element from the center of the viewport
-    // and adjusts its opacity and scale to create a "highlight/focus" effect.
+    // === SCROLL FADE-IN ANIMATION ===
+    // Smooth fade-in and slide-up effect when sections enter viewport
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-    const focusElements = document.querySelectorAll('.hero-content, .about-section, .project-card, .contact-container, .section-title');
-
-    function updateFocus() {
-        const viewportCenter = window.innerHeight / 2;
-        const focusRange = window.innerHeight * 0.4; // 40% of viewport height is the "focus zone"
-
-        focusElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementCenter = rect.top + (rect.height / 2);
-
-            // Calculate distance from center
-            const distanceFromCenter = Math.abs(viewportCenter - elementCenter);
-
-            // Calculate opacity based on distance
-            // If distance is 0 (centered), opacity is 1. If distance is large, opacity decreases.
-            let opacity = 1 - (distanceFromCenter / (focusRange * 1.5));
-
-            // Allow minimum opacity to still be somewhat visible (0.4) so it's not totally black unless far
-            if (opacity < 0.2) opacity = 0.2;
-            if (opacity > 1) opacity = 1;
-
-            // Apply styles
-            element.style.opacity = opacity;
-            element.style.transform = `scale(${0.95 + (opacity * 0.05)})`; // Gentle scale effect
-            element.style.transition = 'opacity 0.1s ease-out, transform 0.1s ease-out';
-
-            // Optional: Blur effect for things far away
-            // const blur = (1 - opacity) * 5;
-            // element.style.filter = `blur(${blur}px)`;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-visible');
+            }
         });
-    }
+    }, observerOptions);
 
-    // Run on scroll and resize
-    window.addEventListener('scroll', updateFocus);
-    window.addEventListener('resize', updateFocus);
-
-    // Initial run
-    updateFocus();
+    // Observe all sections
+    const sections = document.querySelectorAll('.about-section, .projects-section, .contact-section, .project-card');
+    sections.forEach(section => {
+        section.classList.add('fade-in-hidden');
+        observer.observe(section);
+    });
 });

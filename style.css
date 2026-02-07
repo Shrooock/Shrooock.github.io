@@ -24,6 +24,11 @@ body {
     line-height: 1.6;
 }
 
+html {
+    scroll-padding-top: 300px;
+    /* Adjusted to perfectly center About Me section */
+}
+
 /* Background Animation */
 .background-animation {
     position: fixed;
@@ -746,6 +751,18 @@ h1 {
     transform: translateY(0);
 }
 
+/* Fade-In Animation on Scroll */
+.fade-in-hidden {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -967,6 +984,8 @@ h1 {
         /* Truncate text to 3 lines */
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
+        /* Standard property for compatibility */
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
