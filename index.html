@@ -29,6 +29,7 @@
 
     <nav class="navbar">
         <div class="logo">Shrooock<span class="dot">.</span></div>
+        <div class="menu-btn"><i class="fas fa-bars"></i></div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -58,11 +59,34 @@
             user-friendly web applications. My goal is to create digital experiences that leave a lasting impression.
         </p>
         <div class="skills">
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Node.js</span>
+            <div class="skill-item">
+                <i class="fab fa-html5" style="color: #e34f26;"></i>
+                <span>HTML5</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-css3-alt" style="color: #264de4;"></i>
+                <span>CSS3</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-js" style="color: #f7df1e;"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-react" style="color: #61dafb;"></i>
+                <span>React</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-node-js" style="color: #68a063;"></i>
+                <span>Node.js</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-php" style="color: #777bb3;"></i>
+                <span>PHP</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database" style="color: #00758f;"></i>
+                <span>MySQL</span>
+            </div>
         </div>
     </section>
 
@@ -119,6 +143,37 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container glass-panel">
+            <div class="contact-content">
+                <p>Have a project in mind or just want to say hi? Feel free to send me a message!</p>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>shrooock.dev@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/Shrooock</span>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn primary">Send Message</button>
+            </form>
         </div>
     </section>
 

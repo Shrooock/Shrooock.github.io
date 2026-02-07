@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typing Effect
     const textElement = document.getElementById('typing-text');
     const texts = ['Web Developer', 'IT Enthusiast', 'Creative Coder'];
-    let count = 0; // Index of current word
-    let index = 0; // Index of current character
+    let count = 0;
+    let index = 0;
     let currentText = '';
     let letter = '';
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (letter.length === currentText.length) {
-            setTimeout(deleteText, 2000); // Wait before deleting
+            setTimeout(deleteText, 2000);
         } else {
             setTimeout(type, 100);
         }
@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function deleteText() {
         if (index > 0) {
-            // Check if currentText is still valid just in case
             letter = currentText.slice(0, --index);
             if (textElement) {
                 textElement.textContent = letter;
@@ -39,16 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Start the typing loop
     type();
 
-    // Smooth Scrolling for Anchor Links
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
+
             if (targetElement) {
+                // Close mobile menu if open
+                const navLinks = document.querySelector('.nav-links');
+                const menuBtnIcon = document.querySelector('.menu-btn i');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtnIcon.classList.remove('fa-times');
+                    menuBtnIcon.classList.add('fa-bars');
+                }
+
                 targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -56,7 +64,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Intersection Observer for Animations on Scroll
+    // Mobile Menu Toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const menuBtnIcon = document.querySelector('.menu-btn i');
+
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Toggle Icon
+            if (navLinks.classList.contains('active')) {
+                menuBtnIcon.classList.remove('fa-bars');
+                menuBtnIcon.classList.add('fa-times');
+            } else {
+                menuBtnIcon.classList.remove('fa-times');
+                menuBtnIcon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // Intersection Observer for Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -65,8 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    const sections = document.querySelectorAll('.about-section, .hero-content');
-    // Target specific animation containers or add class to sections you want animated
+    const sections = document.querySelectorAll('.about-section, .projects-section, .contact-section, .hero-content');
     sections.forEach(section => {
         observer.observe(section);
         section.classList.add('hidden-section');
