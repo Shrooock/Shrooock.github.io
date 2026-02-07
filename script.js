@@ -86,15 +86,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // === SCROLL FADE-IN ANIMATION ===
     // Smooth fade-in and slide-up effect when sections enter viewport
+    // Now works repeatedly - fades in when entering, fades out when leaving
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Element is entering viewport - fade in
                 entry.target.classList.add('fade-in-visible');
+                entry.target.classList.remove('fade-in-hidden');
+            } else {
+                // Element is leaving viewport - fade out
+                entry.target.classList.remove('fade-in-visible');
+                entry.target.classList.add('fade-in-hidden');
             }
         });
     }, observerOptions);
