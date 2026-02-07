@@ -643,92 +643,6 @@ h1 {
     transform: translateY(0);
 }
 
-/* Mobile Project Cards Overrides */
-@media (max-width: 768px) {
-    .project-card {
-        height: auto;
-        overflow: visible;
-        /* Allow content to flow */
-        background: rgba(10, 10, 10, 0.5);
-        /* Semi-transparent bg */
-        border: 1px solid var(--glass-border);
-    }
-
-    .project-image {
-        height: auto;
-        display: block;
-        /* Standard block */
-    }
-
-    .project-image img {
-        height: 200px;
-        /* Fixed height for the screenshot on mobile */
-        width: 100%;
-        object-fit: cover;
-        /* Crop to fill */
-        object-position: top center;
-        /* Focus on top part of screenshot */
-        border-radius: 15px 15px 0 0;
-        display: block;
-    }
-
-    .overlay {
-        position: relative;
-        /* Move it out of absolute overlay */
-        top: auto;
-        left: auto;
-        opacity: 1;
-        height: auto;
-        /* Auto height to fit text */
-        background: transparent;
-        padding: 0;
-        display: block;
-        /* Remove flex centering */
-    }
-
-    .overlay-content {
-        transform: none;
-        /* Remove hover animation default */
-        text-align: left;
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
-        /* Card body background */
-        border-radius: 0 0 15px 15px;
-        border-top: 1px solid var(--glass-border);
-    }
-
-    /* Override hover effects on mobile */
-    .project-card:hover .project-image img {
-        transform: none;
-    }
-
-    .project-card:hover .overlay-content {
-        transform: none;
-    }
-
-    .overlay-content h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.8rem;
-        color: var(--primary-color);
-    }
-
-    .overlay-content p {
-        font-size: 1rem;
-        color: #ccc;
-        margin-bottom: 1.5rem;
-        line-height: 1.5;
-    }
-
-    .btn-small {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 0.8rem;
-        margin-top: 1rem;
-        background: rgba(0, 242, 255, 0.1);
-    }
-}
-
 /* =========================================
    RESPONSIVE DESIGN
    ========================================= */
@@ -830,6 +744,105 @@ h1 {
         width: 100%;
         min-width: auto;
     }
+
+    /* Footer Centering */
+    .footer .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .social-links a {
+        margin: 0;
+        /* Reset margin since we use gap */
+    }
+
+    /* Mobile Project Cards Overrides */
+    .project-card {
+        height: auto;
+        overflow: visible;
+        /* Allow content to flow */
+        background: rgba(10, 10, 10, 0.5);
+        /* Semi-transparent bg */
+        border: 1px solid var(--glass-border);
+    }
+
+    .project-image {
+        height: auto;
+        display: block;
+        /* Standard block */
+    }
+
+    .project-image img {
+        height: 200px;
+        /* Fixed height for the screenshot on mobile */
+        width: 100%;
+        object-fit: cover;
+        /* Crop to fill */
+        object-position: top center;
+        /* Focus on top part of screenshot */
+        border-radius: 15px 15px 0 0;
+        display: block;
+    }
+
+    .overlay {
+        position: relative;
+        /* Move it out of absolute overlay */
+        top: auto;
+        left: auto;
+        opacity: 1;
+        height: auto;
+        /* Auto height to fit text */
+        background: transparent;
+        padding: 0;
+        display: block;
+        /* Remove flex centering */
+    }
+
+    .overlay-content {
+        transform: none;
+        /* Remove hover animation default */
+        text-align: left;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        /* Card body background */
+        border-radius: 0 0 15px 15px;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    /* Override hover effects on mobile */
+    .project-card:hover .project-image img {
+        transform: none;
+    }
+
+    .project-card:hover .overlay-content {
+        transform: none;
+    }
+
+    .overlay-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+        color: var(--primary-color);
+    }
+
+    .overlay-content p {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+        white-space: normal;
+        /* Ensure text wraps */
+    }
+
+    .btn-small {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        margin-top: 1rem;
+        background: rgba(0, 242, 255, 0.1);
+    }
 }
 
 /* Small Mobile (Max Width: 480px) */
@@ -861,16 +874,4 @@ h1 {
         grid-template-columns: 1fr;
         /* Force single column on very small screens */
     }
-}
-
-/* Scroll Animation Classes */
-.hidden-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
