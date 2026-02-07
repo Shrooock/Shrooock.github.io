@@ -732,6 +732,34 @@ h1 {
     transform: translateY(0);
 }
 
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background: rgba(10, 10, 10, 0.8);
+    border-top: 1px solid var(--glass-border);
+    color: #777;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
 /* =========================================
    RESPONSIVE DESIGN
    ========================================= */
